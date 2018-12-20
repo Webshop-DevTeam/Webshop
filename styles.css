@@ -1,0 +1,10 @@
+body {
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header a {
+    height: 10%;
+    color: #1a1a1a;
+    text-align: right;
+}
