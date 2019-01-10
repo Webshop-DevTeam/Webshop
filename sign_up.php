@@ -11,55 +11,58 @@
 <body>
     <h1>Registration</h1>
 
-    <form action="">
-        <div>
+    <form method="post" action="register.php">
+        <div class="input_group">
             <label>Firstname</label>
             <input type="text" name="firstname">
         </div>
-        <div>
+        <div class="input_group">
             <label>Lastname</label>
             <input type="text" name="lastname">
         </div>
-        <div>
+        <div class="input_group">
             <label>age</label>
             <input type="number" name="age">
         </div>
-        <div>
+        <div class="input_group">
             <label>gender</label>
             <input type="text" name="gender">
         </div>
-        <div>
+        <div class="input_group">
             <label>street</label>
             <input type="text" name="street">
         </div>
-        <div>
+        <div class="input_group">
             <label>location</label>
             <input type="text" name="location">
         </div>
-        <div>
+        <div class="input_group">
             <label>zip</label>
             <input type="number" name="zip">
         </div>
-        <div>
+        <div class="input_group">
             <label>country</label>
             <input type="text" name="country">
         </div>
-        <div>
+        <div class="input_group">
             <label>email</label>
             <input type="email" name="email">
         </div>
-        <div>
+        <div class="input_group">
             <label>year</label>
             <input type="text" name="year">
         </div>
         <hr />
-        <div>
+        <div class="input_group">
             <label>password</label>
-            <input type="text" name="password">
+            <input type="password" name="password_1">
         </div>
-        <div>
+        <div class="input_group">
             <label>Confirm password</label>
-            <input type="text" name="confirmPassword">
+            <input type="password" name="password_2">
+        </div>
+        <div class="input_group">
+            <button type="submit" name="Register" class="btn">
         </div>
     </form>
 </body>
