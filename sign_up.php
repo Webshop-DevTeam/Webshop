@@ -1,3 +1,4 @@
+<?php include('server.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +92,7 @@
                     <button type="button" class="btn btn-success">Register</button>
                 </div>
             </div>
+            <p>Already a member? <a href="login.php">Log in</p>
         </form>
     </div>    
 </body>
