@@ -1,24 +1,39 @@
 <?php
-    $db = mysqli_connect('localhost', 'root', '', 'kunde')
+    $db = mysqli_connect('localhost', 'root', '', 'db_webshop');
 
-    $firstname = mysql_real_escape_string($_POST['firstname']);
-    $lastname = mysql_real_escape_string($_POST['lastname']);
-    $age = mysql_real_escape_string($_POST['age']);
-    $gender = mysql_real_escape_string($_POST['gender']);
-    $street = mysql_real_escape_string($_POST['street']);
-    $location = mysql_real_escape_string($_POST['location']);
-    $zip = mysql_real_escape_string($_POST['zip']);
-    $country = mysql_real_escape_string($_POST['country']);
-    $email = mysql_real_escape_string($_POST['email']);
-    $year = mysql_real_escape_string($_POST['year']);
-    $password = mysql_real_escape_string($_POST['password']);
-
+    $firstname = "";
+    $lastname = "";
+    $age = 0;
+    $gender = "";
+    $street = "";
+    $location = "";
+    $zip = 0;
+    $country = "";
+    $email = "";
+    $year = "";
+    $password_1 = "";
+    $password_2 = "";
+    
     $errors = array();
 
     //if the register button is clicked
 
     if (isset($_POST['register']))
     {
+        $firstname = htmlspecialchars($_POST['firstname']);
+        $lastname = htmlspecialchars($_POST['lastname']);
+        $age = htmlspecialchars($_POST['age']);
+        $gender = htmlspecialchars($_POST['gender']);
+        $street = htmlspecialchars($_POST['street']);
+        $location = htmlspecialchars($_POST['location']);
+        $zip = htmlspecialchars($_POST['zip']);
+        $country = htmlspecialchars($_POST['country']);
+        $email = htmlspecialchars($_POST['email']);
+        $year = htmlspecialchars($_POST['year']);
+        $password_1 = htmlspecialchars($_POST['password_1']);
+        $password_2 = htmlspecialchars($_POST['password_2']); 
+
+
         //ensure the form field are filled properly
         if (empty('firstname'))
         {
@@ -54,19 +69,17 @@
         }
         if ($password_1 != $password_2)
         {
-            array_push($erros, "The two passwords don't match")
+            array_push($errors, "The two passwords don't match");
         }
 
         //if they are no errors, save user to database
         if (count($errors) == 0)
         {
             $password = md5($password_1); //encrypt password before storing in database (security)
-            $sql = "INSERT INTO kunde (firstname, lastname, age, gender, street, location, zip, country, email, year, password) 
-            VALUES ('$firstname', '$lastname', '$age', '$gender', '$street'. '$location'. '$zip'. '$country', '$email', '$year'. '$password')";
+            $sql = "INSERT INTO kunde (firstname, lastname, age, gender, street, location, zip, country, email, year, password_1) 
+            VALUES ('$firstname', '$lastname', '$age', '$gender', '$street'. '$location'. '$zip'. '$country', '$email', '$year'. '$password_1')";
 
-            mysqli_query($db, $sql)
-        }
-        
+            mysqli_query($db, $sql);
+        } 
     }
-
 ?>
