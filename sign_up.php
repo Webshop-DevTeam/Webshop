@@ -16,6 +16,10 @@
     <div class="container">
         <h1>Registration</h1>
         <form class="form-horizontal" method="post" action="register.php">
+            <!-- display validation errors-->
+            <?php
+                include('errors.php');
+            ?>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="firstname">Firstname</label>
                 <div class="col-sm-6">
@@ -91,7 +95,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-success">Register</button>
+                    <button type="button" class="btn btn-success" name="register">Register</button>
                 </div>
             </div>
             <p>Already a member? <a href="login.php">Log in</p>
