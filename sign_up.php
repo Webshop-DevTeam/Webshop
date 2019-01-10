@@ -10,61 +10,86 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Registration</h1>
-
-    <form method="post" action="register.php">
-        <div class="input_group">
-            <label>Firstname</label>
-            <input type="text" name="firstname">
-        </div>
-        <div class="input_group">
-            <label>Lastname</label>
-            <input type="text" name="lastname">
-        </div>
-        <div class="input_group">
-            <label>age</label>
-            <input type="number" name="age">
-        </div>
-        <div class="input_group">
-            <label>gender</label>
-            <input type="text" name="gender">
-        </div>
-        <div class="input_group">
-            <label>street</label>
-            <input type="text" name="street">
-        </div>
-        <div class="input_group">
-            <label>location</label>
-            <input type="text" name="location">
-        </div>
-        <div class="input_group">
-            <label>zip</label>
-            <input type="number" name="zip">
-        </div>
-        <div class="input_group">
-            <label>country</label>
-            <input type="text" name="country">
-        </div>
-        <div class="input_group">
-            <label>email</label>
-            <input type="email" name="email">
-        </div>
-        <div class="input_group">
-            <label>year</label>
-            <input type="text" name="year">
-        </div>
-        <hr />
-        <div class="input_group">
-            <label>password</label>
-            <input type="password" name="password_1">
-        </div>
-        <div class="input_group">
-            <label>Confirm password</label>
-            <input type="password" name="password_2">
-        </div>
-        <div class="input_group">
-            <button type="submit" name="Register" class="btn">
-        </div>
-    </form>
+    <div class="container">
+        <h1>Registration</h1>
+        <form method="post" action="register.php">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="firstname">Firstname</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="firstname" placeholder="Enter your firstname" name="firstname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lastname">Lastname</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="lastname" placeholder="Enter your lastname" name="lastname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="age">age</label>
+                <div class="col-sm-7">
+                    <input type="number" class="form-control" id="age" placeholder="Enter your age (optional)" name="age">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gender">gender</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="gender" placeholder="Enter your gender (optional)" name="gender">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="street">street</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="street" placeholder="Enter you street" name="street">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="location">location</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="location" placeholder="Enter your location (canton, state or province)" name="location">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="zip">zip</label>
+                <div class="col-sm-7">
+                    <input type="number" class="form-control" id="zip" placeholder="Enter your zip code" name="zip">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="country">country</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="country" placeholder="Enter your country" name="country">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">email</label>
+                <div class="col-sm-7">
+                    <input type="email" class="form-control" id="email" placeholder="Enter a valid email" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="year">year</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="year" placeholder="Enter your birth date (optional)" name="year">
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">password</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" id="pwd_1" placeholder="Enter your new password" name="password_1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Confirm password</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" id="pwd_2" placeholder="Confirm Password" name="password_2">
+                </div>
+            </div>
+            <div class="input_group">
+                <button type="submit" name="Register" class="btn">
+            </div>
+        </form>
+    </div>    
 </body>
 </html>
