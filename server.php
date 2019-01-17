@@ -1,5 +1,12 @@
 <?php
-    $db = mysqli_connect('localhost', 'root', '', 'db_webshop');
+
+    $host = 'localhost';
+    $user = 'root';
+    $password = 'password';
+    $db1 = 'db_webshop';
+    
+    $db = new mysqli($host,$user,$password, $db1);
+
 
     $firstname = "";
     $lastname = "";
@@ -77,7 +84,7 @@
         {
             $password = md5($password_1); //encrypt password before storing in database (security)
             $sql = "INSERT INTO kunde (firstname, lastname, age, gender, street, location, zip, country, email, year, password_1) 
-            VALUES ('$firstname', '$lastname', '$age', '$gender', '$street'. '$location'. '$zip'. '$country', '$email', '$year'. '$password_1')";
+            VALUES ('$firstname', '$lastname', '$age', '$gender', '$street', '$location', '$zip', '$country', '$email', '$year', '$password_1')";
 
             mysqli_query($db, $sql);
         } 
