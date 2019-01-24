@@ -11,6 +11,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
+<?php
+
+$host = 'localhost';
+$user = 'root';
+$password = 'password';
+$db1 = 'db_webshop';
+
+$db = new mysqli($host,$user,$password, $db1);
+
+?>
 <body>
     <div class="container">
         <h1>Registration</h1>

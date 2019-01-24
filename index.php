@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+
 <?php
 
 $host = 'localhost';
@@ -19,7 +20,7 @@ $db1 = 'db_webshop';
 $db = new mysqli($host,$user,$password, $db1);
 
 ?>
-<body>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -36,6 +37,7 @@ $db = new mysqli($host,$user,$password, $db1);
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
           <ul class="dropdown-menu">
+
           <?php
                             $sql = "SELECT id, cgname FROM kategorie";
 
@@ -51,7 +53,7 @@ $db = new mysqli($host,$user,$password, $db1);
           </ul>
         </li>
         <li><a href="Kontakt.php">Kontakt</a></li>
-      
+        <li><a href="#">Page 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -60,26 +62,12 @@ $db = new mysqli($host,$user,$password, $db1);
     </div>
   </div>
 </nav>
-    <div class="container">
-        <h1>Log in</h1>
-        <form class="form-horizontal" method="post" action="login.php">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="firstname">Firstname</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="firstname" placeholder="Enter your firstname" name="firstname">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">password</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control" id="pwd_1" placeholder="Enter your new password" name="password_1">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-success">login</button>
-                </div>
-            </div>
-            <p>Not yet a member? <a href="sign_up.php">Sign up</p>
+  
+<div class="container">
+  <h3>Collapsible Navbar</h3>
+  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
+  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+</div>
+
 </body>
 </html>
