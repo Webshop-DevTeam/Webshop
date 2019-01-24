@@ -54,7 +54,6 @@ $db = new mysqli($host,$user,$password, $db1);
                         </ul>
                       </li>
                       <li><a href="Kontakt.php">Kontakt</a></li>
-                      <li><a href="#">Page 3</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -75,14 +74,14 @@ $db = new mysqli($host,$user,$password, $db1);
 
                 $qp = "SELECT productid, prdname, preis, bild FROM produkte WHERE kategorieidfs=" . $category;
 
-                $result1 = $db->query($qp);
+                // $result1 = $db->query($qp);
                             
-                            if ($result->num_rows > 0) {
+                //             if ($result->num_rows > 0) {
                                 
-                                while($row1 = $result1->fetch_assoc()) {
-                                    echo "<div class='col-xs-2 text-center'><img src='" . $row1["bild"] . "' style='margin-bottom: 20px;'><br><a href='ProductDetails.php?id=" . $row1["productid"] . "'>" . $row1["prdname"] . "<br>CHF " . $row1["preis"] . "</a></div>";
-                                }
-                            }
+                //                 while($row1 = $result1->fetch_assoc()) {
+                //                     echo "<div class='col-xs-2 text-center'><img src='" . $row1["bild"] . "' style='margin-bottom: 20px;'><br><a href='ProductDetails.php?id=" . $row1["productid"] . "'>" . $row1["prdname"] . "<br>CHF " . $row1["preis"] . "</a></div>";
+                //                 }
+                //             }
         
               ?>
 
@@ -94,7 +93,14 @@ $db = new mysqli($host,$user,$password, $db1);
              <div class="row" style="margin-bottom: 50px;">
 
             <?php
-                  if ($result->num_rows > 0) {
+
+                
+
+                $qp = "SELECT productid, prdname, preis, bild FROM produkte WHERE kategorieidfs=" . $category;
+
+                $result1 = $db->query($qp);
+
+                  if ($result1->num_rows > 0) {
                                 
                     while($row1 = $result1->fetch_assoc()) {
                         echo "<div class='col-xs-2 text-center'><img src='" . $row1["bild"] . "' style='margin-bottom: 20px;'><br><a href='ProductDetails.php?id=" . $row1["productid"] . "'>" . $row1["prdname"] . "<br>CHF " . $row1["preis"] . "</a></div>";

@@ -7,6 +7,17 @@
 <title>Product Details</title>
 </head>
 
+<?php
+
+$host = 'localhost';
+$user = 'root';
+$password = 'password';
+$db1 = 'db_webshop';
+
+$db = new mysqli($host,$user,$password, $db1);
+
+?>
+
 <body style="width: 100%">ö
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -24,13 +35,22 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="Products.html">Produkte<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Page 1-1</a></li>
-                  <li><a href="#">Page 1-2</a></li>
-                  <li><a href="#">Page 1-3</a></li>
+                <?php
+                            $sql = "SELECT id, cgname FROM kategorie";
+
+                            $result = $db->query($sql);
+                            
+                            if ($result->num_rows > 0) {
+                                
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<li><a href='Products.php?id=" . $row["id"] . "'>". $row["cgname"]."</a></li>";
+                                }
+                            }
+                        ?>
                 </ul>
               </li>
-              <li><a href="Kontakt.html">Kontakt</a></li>
-              <li><a href="#">Page 3</a></li>
+              <li><a href="Kontakt.php">Kontakt</a></li>
+              
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -40,24 +60,36 @@
         </div>
       </nav>
 
+      <?php
+
+          $product = $_GET['id'];
+
+          $sql1 = "SELECT  productid, prdname, manufracturer, datum, preis, anlager, description, bild FROM produkte WHERE productid=" . $product;
+
+          $result1 = $db->query($sql1);
+
+          $row1 = $result1->fetch_assoc();
+
+
+      ?>
+
     
 
 <main class="container" style="margin-top: 100px;">
   <div class="row" style="margin-bottom: 200px">
     <div class="col">
-        <img src="bluesquare.png" class="w-75"></img>
+        <?php echo "<img src='" . $row1["bild"] . "' class='w-75'>"; ?> 
     </div>
     <div class="col" style="margin-top: 50px;">
-        <p>Product name</p><br>
-        <p>Manufracturer</p><br>
-        <p>Erstellungsdatum</p><br>
-        <p>Preis</p><br>
-        <p>Anzahl Stück auf Lager</p>
+        <?php echo "<p> Productname: <br>" . $row1["prdname"] . "</p><br><p>Hersteller: <br>" . $row1["manufracturer"] . "</p><br><p>Herstellungsdatum: <br>" . $row1["datum"] . "</p><br><p>Preis: <br>CHF " . $row1["preis"] . "</p><br><p>Noch an Lager: <br>" . $row1["anlager"] . " Stueck</p>";
+        
+        ?>
     </div>
   </div>
     <div>
-        <p>Description name</p>
-        <p>Description Text</p>
+        <p style='font-weight: bold;' >Description name</p>
+        <?php echo "<p>" . $row1["description"] . "</p>";
+        ?>
         
     </div>
 
