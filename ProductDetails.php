@@ -18,7 +18,7 @@ $db = new mysqli($host,$user,$password, $db1);
 
 ?>
 
-<body style="width: 100%">ö
+<body style="width: 100%">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -27,11 +27,11 @@ $db = new mysqli($host,$user,$password, $db1);
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="index.html">WebSiteName</a>
+            <a class="navbar-brand" href="index.php">WebSiteName</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home</a></li>
+              <li class="active"><a href="index.php">Home</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="Products.html">Produkte<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -54,7 +54,7 @@ $db = new mysqli($host,$user,$password, $db1);
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
           </div>
         </div>
@@ -76,20 +76,24 @@ $db = new mysqli($host,$user,$password, $db1);
     
 
 <main class="container" style="margin-top: 100px;">
-  <div class="row" style="margin-bottom: 200px">
+  <div class="row" style="margin-bottom: 100px">
     <div class="col">
         <?php echo "<img src='" . $row1["bild"] . "' class='w-75'>"; ?> 
     </div>
     <div class="col" style="margin-top: 50px;">
-        <?php echo "<p> Productname: <br>" . $row1["prdname"] . "</p><br><p>Hersteller: <br>" . $row1["manufracturer"] . "</p><br><p>Herstellungsdatum: <br>" . $row1["datum"] . "</p><br><p>Preis: <br>CHF " . $row1["preis"] . "</p><br><p>Noch an Lager: <br>" . $row1["anlager"] . " Stueck</p>";
+        <?php echo "<p style='font-weight: bold;'> Productname: </p><p>" . $row1["prdname"] . "</p><br><p style='font-weight: bold;'>Hersteller:</p><p>" . $row1["manufracturer"] . "</p><br><p style='font-weight: bold;'>Herstellungsdatum: </p><p>" . $row1["datum"] . "</p><br><p style='font-weight: bold;' >Preis: </p><p>CHF " . $row1["preis"] . "</p><br><p style='font-weight: bold;' >Noch an Lager: </p><p>" . $row1["anlager"] . " Stueck</p><br><br>";
         
+        ?>
+
+    <p style='font-weight: bold; ' >Description:</p>
+
+    <?php echo "<p>" . $row1["description"] . "</p>";
         ?>
     </div>
   </div>
-    <div>
-        <p style='font-weight: bold;' >Description name</p>
-        <?php echo "<p>" . $row1["description"] . "</p>";
-        ?>
+    <div style="padding-bottom: 100px;">
+        
+        
         
     </div>
 

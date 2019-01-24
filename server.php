@@ -53,7 +53,7 @@ $db = new mysqli($host,$user,$password, $db1);
           </ul>
         </li>
         <li><a href="Kontakt.php">Kontakt</a></li>
-        <li><a href="#">Page 3</a></li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
