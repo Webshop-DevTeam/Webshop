@@ -56,8 +56,30 @@ $db = new mysqli($host,$user,$password, $db1);
                       <li><a href="Kontakt.php">Kontakt</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="sign_up.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php 
+        
+        $kunde = $_GET["kid"];
+
+        if($kunde != null){
+          $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
+         
+          $result2 = $db->query($sql2);
+          $row2 = $result2->fetch_assoc();
+
+          echo "<li><a href='kunde.php?kid=" . $row2["kundenid"] . "'><span></span>" . $row2["firstname"] . "</a></li>";
+
+
+        }else{
+
+          echo "<li><a href='sign_up.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
+                <li><a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+        }
+
+        
+
+        
+        
+        ?>
                     </ul>
                   </div>
                 </div>
