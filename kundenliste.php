@@ -12,7 +12,7 @@
 
 <body>
 
-    <?php
+<?php
     $host = 'localhost';
     $user = 'root';
     $password = 'password';
@@ -20,7 +20,11 @@
 
     $db = new mysqli($host,$user,$password, $db1);
 
-    if($kunde != null){
+    if($kunde == null)
+    {
+        echo "<p>error</p>";
+    }
+    
     $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
 
     //table
@@ -42,22 +46,20 @@
                 </tr>
             </thead>
             <tbody id="myTable">
-
                 <?php
-        while($row = mysql_fetch_array($result))
-        {   
-            //Creates a loop to loop through results
-            echo "<tr><td>" . $row['firstname'] . "</tr><td>" . $row['lastname'] . "</tr></td>" . $row['country'] . "</tr></td>" . $row['email'];  //$row['index'] the index here is a field name
-        }
-    ?>
-
+                    while($row = mysql_fetch_array($result))
+                    {   
+                        //Creates a loop to loop through results
+                        echo "<tr><td>" . $row['firstname'] . "</tr><td>" . $row['lastname'] . "</tr></td>" . $row['country'] . "</tr></td>" . $row['email'];  //$row['index'] the index here is a field name
+                    }
+                ?>
             </tbody>
         </table>
 
         <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
     </div>
 
-    <?php 
+<?php 
     mysql_close(); //Make sure to close out the database connection 
 ?>
 
