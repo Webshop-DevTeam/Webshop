@@ -34,6 +34,7 @@ $db = new mysqli($host,$user,$password, $db1);
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Home</a></li>
+        <li class="active"><a href="kundenliste.php">Kundenliste</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
           <ul class="dropdown-menu">
