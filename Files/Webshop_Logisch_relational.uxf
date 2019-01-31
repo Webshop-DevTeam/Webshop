@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>432</y>
+      <w>192</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Firma
+--
+_-FirmaID_PK_
+- Firmaname: VARCHAR(55)
+- anzahlMitarbeiter: int
+- Standort: VARCHAR(55)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>992</x>
+      <y>256</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Bestellungen
+--
+_-BestellungID_PK_
+-Bestellungsnummer: int
+-ProduktID_FK                     NN --
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>256</y>
+      <w>176</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Kategorien
+--
+_- KategorieID_PK_
+-	Kategorienname: VARCHAR(55)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>648</y>
+      <w>208</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Externe Mitarbeiter
+--
+_- ExterneMitarbeiterID_PK_
+-	Vorname: VARCHAR(55)
+-	Nachname: VARCHAR(55)
+-	Alter: int
+-	Geschlecht: VARCHAR(55)
+-	Geb. Datum: DATE
+-FirmaID_FK                               NN --
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>656</x>
+      <y>232</y>
+      <w>200</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Produkt
+--
+_- ProduktID_PK_
+-	Produktname: VARCHAR(55)
+-	Preis: FLOAT
+-	anzahlStückeAufLager: int
+-	Erstellungsdatum: DATE
+-HerstellerID_FK                       NN --
+-KategorieID_FK                       NN --
+-FirmaID_FK                             NN --
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>576</y>
+      <w>192</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Lieferant
+--
+_- LieferantID_PK_
+-	Lieferant: VARCHAR(55)
+-ExterneMitarbeiterID_FK      NN UN
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>104</y>
+      <w>240</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Zahlungsmethoden
+--
+_- ZahlungsmethodeID_PK_
+-Zahlungsmethoden: VARCHAR(55)
+-BestellungID_FK                                    NN --
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>664</x>
+      <y>72</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Hersteller
+--
+_- HerstellerID_PK_
+-	Herstellername: VARCHAR(55)
+-	Land: VARCHAR(55)
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>648</y>
+      <w>264</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Filiale
+--
+_- StandortID_PK_
+-	Land: VARCHAR(255)
+-	Kanton/State/Province: VARCHAR(55)
+-	Strasse: VARCHAR(55)
+-	Ort: VARCHAR(55)
+-	PLZ: int
+-ExterneMitarbeiterID_FK                             NN UN
+-InterneMitarbeiterID_FK                              NN UN
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>448</y>
+      <w>208</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Transportart
+--
+_- TransportartID_PK_
+-	Transportart: VARCHAR(55)
+-FirmaID_FK                                NN --
+-LiefertantID_FK                          NN --
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>648</y>
+      <w>208</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Interne Mitarbeiter
+--
+_- InterneMitarbeiterID_PK_
+-	Vorname: VARCHAR(55)
+-	Nachname: VARCHAR(55)
+-	Alter: int
+-	Geschlecht: VARCHAR(55)
+-	Geb. Datum: DATE
+-FirmaID_FK                                NN --
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>400</y>
+      <w>200</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Kunde
+--
+_-KundeID_PK_
+-	Vorname: VARCHAR(55)
+-	Nachname: VARCHAR(55)
+-	Alter: int
+-	Geschlecht: VARCHAR(55)
+-	Strasse: VARCHAR(100)
+-	Ort: VARCHAR(55)
+-	PLZ: int
+-	Land: VARCHAR(55)
+-	Email: VARCHAR(55)
+-	Geb. Datum: DATE
+-FirmaID_FK                               NN --
+
+
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>512</x>
+      <y>688</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=c
+arbeiten</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>504</y>
+      <w>192</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+beschäftigt</panel_attributes>
+    <additional_attributes>10.0;180.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>504</y>
+      <w>304</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+beschäftigt</panel_attributes>
+    <additional_attributes>360.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>896</x>
+      <y>696</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=c
+liegt</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>456</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+hat</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>352</y>
+      <w>56</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+besitzt</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>264</y>
+      <w>232</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+gehört</panel_attributes>
+    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>136</y>
+      <w>56</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+besitzt
+</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>264</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+hat</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>616</y>
+      <w>144</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=c
+m2=1
+ist</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>456</y>
+      <w>152</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=mc
+m2=1
+organisiert</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>480</y>
+      <w>144</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=mc
+gehört</panel_attributes>
+    <additional_attributes>10.0;120.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1072</x>
+      <y>160</y>
+      <w>72</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=mc
+anwenden
+</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
