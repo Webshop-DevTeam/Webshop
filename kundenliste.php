@@ -28,7 +28,7 @@
     $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
 
     //table
-    $result = mysql_query($query);
+    
 ?>
 
     <div class="container">
@@ -47,10 +47,14 @@
             </thead>
             <tbody id="myTable">
                 <?php
-                    while($row = mysql_fetch_array($result))
+
+                $query = "SELECT kundenid, firstname, lastname, country, email FROM kunde";
+                
+                $result = $db->query($query);
+                    while($row = $result->fetch_assoc())
                     {   
                         //Creates a loop to loop through results
-                        echo "<tr><td>" . $row['firstname'] . "</tr><td>" . $row['lastname'] . "</tr></td>" . $row['country'] . "</tr></td>" . $row['email'];  //$row['index'] the index here is a field name
+                        echo "<tr><td>" . $row['firstname'] . "</td><td>" . $row['lastname'] . "</td><td>" . $row['country'] . "</td><td>" . $row['email'] . "</td></tr>";  //$row['kundenid'] the index here is a field name
                     }
                 ?>
             </tbody>
@@ -60,7 +64,7 @@
     </div>
 
 <?php 
-    mysql_close(); //Make sure to close out the database connection 
+    //mysql_close(); //Make sure to close out the database connection 
 ?>
 
     <script>
