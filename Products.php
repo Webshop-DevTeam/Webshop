@@ -16,29 +16,38 @@ $db1 = 'db_webshop';
 
 $db = new mysqli($host,$user,$password, $db1);
 
+
+if ($_GET["kid"] != 0){
+  $kunde = $_GET["kid"];
+
+  $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
+
+  $result2 = $db->query($sql2);
+  $row2 = $result2->fetch_assoc();
+
+ } else {
+   $kunde = 0;
+ }
 ?>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+       <?php echo "<a class='navbar-brand' href='index.php?kid=" . $kunde . "'>WebSiteName</a>"; ?>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
+          <ul class="dropdown-menu">
 
-
-<body style="width: 100%">
-        <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>                        
-                    </button>
-                    <a class="navbar-brand" href="index.php">WebSiteName</a>
-                  </div>
-                  <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                      <li class="active"><a href="index.php">Home</a></li>
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="Products.php">Kategorien<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-
-                        <?php
+          <?php
                             $sql = "SELECT id, cgname FROM kategorie";
 
                             $result = $db->query($sql);
@@ -46,33 +55,34 @@ $db = new mysqli($host,$user,$password, $db1);
                             if ($result->num_rows > 0) {
                                 
                                 while($row = $result->fetch_assoc()) {
-                                    echo "<li><a href='Products.php?id=" . $row["id"] . "'>". $row["cgname"]."</a></li>";
+                                    echo "<li><a href='Products.php?id=" . $row["id"] . "&kid=" . $kunde . "'>". $row["cgname"]."</a></li>";
                                 }
                             }
                         ?>
-
-                        </ul>
-                      </li>
-                      <li><a href="Kontakt.php">Kontakt</a></li>
+          </ul>
+          </li>
+                      <?php
+                       
+                       
+                      
+                      echo"<li><a href='Kontakt.php?kid=" . $kunde . "'>Kontakt</a></li>"; ?>
+                      
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                    <?php 
+      <ul class="nav navbar-nav navbar-right">
         
-        $kunde = $_GET["kid"];
+        <?php 
+        
+        
 
-        if($kunde != null){
-          $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
-         
-          $result2 = $db->query($sql2);
-          $row2 = $result2->fetch_assoc();
-
-          echo "<li><a href='kunde.php?kid=" . $row2["kundenid"] . "'><span></span>" . $row2["firstname"] . "</a></li>";
+        if($kunde != 0){
+        
+          echo "<li><a href='kunde.php?kid=" . $kunde . "'><span></span>" . $row2["firstname"] . "</a></li>";
 
 
         }else{
 
-          echo "<li><a href='sign_up.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
-                <li><a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+          echo "<li><a href='sign_up.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
+                <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
         }
 
         
@@ -80,10 +90,10 @@ $db = new mysqli($host,$user,$password, $db1);
         
         
         ?>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
               <?php
@@ -125,7 +135,7 @@ $db = new mysqli($host,$user,$password, $db1);
                   if ($result1->num_rows > 0) {
                                 
                     while($row1 = $result1->fetch_assoc()) {
-                        echo "<div class='col-xs-2 text-center'><img src='" . $row1["bild"] . "' style='margin-bottom: 20px;'><br><a href='ProductDetails.php?id=" . $row1["productid"] . "'>" . $row1["prdname"] . "<br>CHF " . $row1["preis"] . "</a></div>";
+                        echo "<div class='col-xs-2 text-center'><img src='" . $row1["bild"] . "' style='margin-bottom: 20px;'><br><a href='ProductDetails.php?id=" . $row1["productid"] . "&kid=" . $kunde .  "'>" . $row1["prdname"] . "<br>CHF " . $row1["preis"] . "</a></div>";
                     }
                 }
 
