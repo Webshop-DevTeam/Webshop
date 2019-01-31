@@ -12,7 +12,7 @@
 
 <body>
 
-<?php
+    <?php
     $host = 'localhost';
     $user = 'root';
     $password = 'password';
@@ -41,26 +41,28 @@
          $kunde = 0;
        }
       ?>
-      
-      <nav class="navbar navbar-inverse">
+
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-             <?php echo "<a class='navbar-brand' href='index.php?kid=" . $kunde . "'>WebSiteName</a>"; ?>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-            <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
-            <li class="active"><?php echo "<a href='kundenliste.php?kid=" . $kunde . "'>Kundenliste</a>"; ?></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-      
-                <?php
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <?php echo "<a class='navbar-brand' href='index.php?kid=" . $kunde . "'>WebSiteName</a>"; ?>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
+                    <li class="active"><?php echo "<a href='kundenliste.php?kid=" . $kunde . "'>Kundenliste</a>"; ?>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <?php
                                   $sql = "SELECT id, cgname FROM kategorie";
       
                                   $result = $db->query($sql);
@@ -72,18 +74,18 @@
                                       }
                                   }
                               ?>
-                </ul>
-                </li>
-                            <?php
+                        </ul>
+                    </li>
+                    <?php
                              
                              
                             
                             echo"<li><a href='Kontakt.php?kid=" . $kunde . "'>Kontakt</a></li>"; ?>
-                            
-                          </ul>
-            <ul class="nav navbar-nav navbar-right">
-              
-              <?php 
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <?php 
               
               
       
@@ -103,10 +105,10 @@
               
               
               ?>
-            </ul>
-          </div>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
     <div class="container">
         <h2>Filterable Table</h2>
@@ -140,7 +142,7 @@
         <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
     </div>
 
-<?php 
+    <?php 
     //mysql_close(); //Make sure to close out the database connection 
 ?>
 
