@@ -12,28 +12,29 @@
 
 <body>
 
-    <?php
-  $host = 'localhost';
-  $user = 'root';
-  $password = 'password';
-  $db1 = 'db_webshop';
+<?php
+    //build a connection string with the database on phpMyAdmin
+    $host = 'localhost';
+    $user = 'root';
+    $password = 'password';
+    $db1 = 'db_webshop';
 
-  $db = new mysqli($host,$user,$password, $db1);
+    $db = new mysqli($host,$user,$password, $db1);
 
+    //if the kunde ID equals null, then initialize it to 0, otherwise select the firstname and lastname from kunde table
+    if ($_GET["kid"] != 0){
+        $kunde = $_GET["kid"];
 
-  if ($_GET["kid"] != 0){
-    $kunde = $_GET["kid"];
+        $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
 
-    $sql2= "SELECT kundenid, firstname FROM kunde WHERE kundenid=" . $kunde;
+        $result2 = $db->query($sql2);
+        $row2 = $result2->fetch_assoc();
 
-    $result2 = $db->query($sql2);
-    $row2 = $result2->fetch_assoc();
-
-  } else {
-    $kunde = 0;
-  }
+    } else {
+        $kunde = 0;
+    }
 ?>
-
+    <!--navbar-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -42,8 +43,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!--show the client on the right-hand side of the navbar, once login in-->
                 <?php echo "<a class='navbar-brand' href='index.php?kid=" . $kunde . "'>Webshop</a>"; ?>
             </div>
+            <!--collapsible navbar for a responsive site-->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
@@ -53,7 +56,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-
+                            <!--select -->
                             <?php
                             $sql = "SELECT id, cgname FROM kategorie";
 
