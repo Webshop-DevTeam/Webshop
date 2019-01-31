@@ -12,7 +12,8 @@
 
 <body>
 
-    <?php
+<?php
+    //Building connection String for the database db_webshop
     $host = 'localhost';
     $user = 'root';
     $password = 'password';
@@ -29,6 +30,7 @@
 
     //table
     */
+    //If the kunde ID equals null, then initialize it to 0, otherwise select the firstname and lastname from kunde table
     if ($_GET["kid"] != 0){
         $kunde = $_GET["kid"];
       
@@ -37,11 +39,11 @@
         $result2 = $db->query($sql2);
         $row2 = $result2->fetch_assoc();
       
-       } else {
+    } else {
          $kunde = 0;
-       }
-      ?>
-
+    }
+?>
+    <!--navbar-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -50,8 +52,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!--show the client on the right-hand side of the navbar, once login in-->
                 <?php echo "<a class='navbar-brand' href='index.php?kid=" . $kunde . "'>WebSiteName</a>"; ?>
             </div>
+            <!--collapsible navbar for a responsive site-->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
@@ -61,8 +65,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-
+                            <!--show dropdown items from "Kategorien"-->
                             <?php
+                                  //the name of the kunde should be shown in the navbar
                                   $sql = "SELECT id, cgname FROM kategorie";
       
                                   $result = $db->query($sql);
@@ -84,32 +89,25 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
                     <?php 
-              
-              
-      
-              if($kunde != 0){
-              
-                echo "<li><a href='kunde.php?kid=" . $kunde . "'><span></span>" . $row2["firstname"] . "</a></li>";
-      
-      
-              }else{
-      
-                echo "<li><a href='sign_up.php?kid=" .$kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
-                <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
-              }
-      
-              
-      
-              
-              
-              ?>
+                        //If kunde equals 0, then just show sign up and login, unless you're logged in.
+                        if($kunde != 0){
+                        
+                            echo "<li><a href='kunde.php?kid=" . $kunde . "'><span></span>" . $row2["firstname"] . "</a></li>";
+                
+                
+                        }else{
+                
+                            echo "<li><a href='sign_up.php?kid=" .$kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
+                            <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!--Search for clients and show firstname, lastname and country-->
     <div class="container">
         <h2>Filterable Table</h2>
         <p>Type something in the input field to search the table for first names, last names or emails:</p>
@@ -145,7 +143,7 @@
     <?php 
     //mysql_close(); //Make sure to close out the database connection 
 ?>
-
+    <!--Dynamic search when typing in tableview-->
     <script>
     $(document).ready(function() {
         $("#myInput").on("keyup", function() {

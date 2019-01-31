@@ -56,55 +56,45 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <!--select -->
+                            <!--show dropdown items from "Kategorien"-->
                             <?php
-                            $sql = "SELECT id, cgname FROM kategorie";
-
-                            $result = $db->query($sql);
-                            
-                            if ($result->num_rows > 0) {
+                                $sql = "SELECT id, cgname FROM kategorie";
+                                $result = $db->query($sql);
                                 
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<li><a href='Products.php?id=" . $row["id"] . "&kid=" . $kunde . "'>". $row["cgname"]."</a></li>";
+                                if ($result->num_rows > 0) {
+                                    
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<li><a href='Products.php?id=" . $row["id"] . "&kid=" . $kunde . "'>". $row["cgname"]."</a></li>";
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
                         </ul>
                     </li>
                     <?php
-                       
-                       
-                      
+                      //the name of the kunde should be shown in the navbar 
                       echo"<li><a href='Kontakt.php?kid=" . $kunde . "'>Kontakt</a></li>"; ?>
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
                     <?php 
         
         
-
+        //If kunde equals 0, then just show sign up and login, unless you're logged in.
         if($kunde != 0){
         
           echo "<li><a href='kunde.php?kid=" . $kunde . "'><span></span>" . $row2["firstname"] . "</a></li>";
-
 
         }else{
 
           echo "<li><a href='sign_up.php?kid=" .$kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
           <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
         }
-
-        
-
-        
-        
         ?>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <!--content of the website (default)-->
     <div class="container">
         <h3>Collapsible Navbar</h3>
         <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right
