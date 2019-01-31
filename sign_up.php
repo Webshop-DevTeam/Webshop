@@ -12,17 +12,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <?php
+    //Build connection with Database Webshop
+    $host = 'localhost';
+    $user = 'root';
+    $password = 'password';
+    $db1 = 'db_webshop';
 
-$host = 'localhost';
-$user = 'root';
-$password = 'password';
-$db1 = 'db_webshop';
-
-$db = new mysqli($host,$user,$password, $db1);
-
+    $db = new mysqli($host,$user,$password, $db1);
 ?>
-
+<!--Sign up form actual content. Backend is in the server.php file-->
+<!--forms from bootstrap-->
 <body>
     <div class="container">
         <h1>Registration</h1>
