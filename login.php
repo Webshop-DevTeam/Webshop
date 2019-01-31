@@ -46,7 +46,7 @@ if ($_GET["kid"] != 0){
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
-        <li class="active"><a href="kundenliste.php">Kundenliste</a></li>
+        <li class="active"><?php echo "<a href='kundenliste.php?kid=" . $kunde . "'>Kundenliste</a>"; ?></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -85,7 +85,6 @@ if ($_GET["kid"] != 0){
 
         }else{
 
-<<<<<<< HEAD
           echo "<li><a href='sign_up.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
           <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
         }
@@ -93,11 +92,6 @@ if ($_GET["kid"] != 0){
         
 
         
-=======
-          echo "<li><a href='sign_up.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
-                <li><a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
-        }       
->>>>>>> 7d9ce7b05ff14530afae724a5a23396a1f76e3a2
         
         ?>
       </ul>
