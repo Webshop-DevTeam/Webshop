@@ -45,7 +45,12 @@ if ($_GET["kid"] != 0){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+<<<<<<< HEAD
         <li class="active"> <?php echo "<a href='index.php?kid=" . $kunde . "'>Home</a>"; ?></li>
+=======
+        <li class="active"><a href="index.php">Home</a></li>
+        <li class="active"><a href="kundenliste.php">Kundenliste</a></li>
+>>>>>>> 7d9ce7b05ff14530afae724a5a23396a1f76e3a2
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategorien<span class="caret"></span></a>
           <ul class="dropdown-menu">

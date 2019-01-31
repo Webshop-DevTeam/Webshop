@@ -87,10 +87,6 @@ if ($_GET["kid"] != 0){
           echo "<li><a href='sign_up.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
           <li><a href='login.php?kid=" . $kunde . "'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
         }
-
-        
-
-        
         
         ?>
       </ul>
